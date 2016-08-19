@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="./bootstrap.css" media="screen">
     <link rel="stylesheet" href="../assets/css/custom.min.css">
+
+    <link href="./map.css" rel="stylesheet">
+    <meta name="robots" content="noindex,nofollow">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -47,7 +50,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">地域<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a href="">東北部</a></li>
-                <li><a href="">西北部</a></li>
+                <li><a href="#west-south" data-toggle="tab">西北部</a></li>
                 <li><a href="">紅河デルタ</a></li>
                 <li><a href="">中北部</a></li>
                 <li><a href="">中南部</a></li>
@@ -93,7 +96,7 @@
             <div class="list-group table-of-contents">
               <a class="list-group-item" href="#all" data-toggle="tab">概要</a>
               <a class="list-group-item" href="#local" data-toggle="tab">地域</a>
-              <a class="list-group-item" href="#world" data-toggle="tab">世界遺産</a>
+              <a class="list-group-item" href="#world1" data-toggle="tab">世界遺産</a>
               <a class="list-group-item" href="#natural" data-toggle="tab">自然風景</a>
               <a class="list-group-item" href="#food" data-toggle="tab">食べ物</a>
               <a class="list-group-item" href="#event" data-toggle="tab">お祭り</a>
@@ -115,20 +118,43 @@
                   <p>国土は南北に細長く、北は中華人民共和国、西はラオス、南西はカンボジアと国境
                     を接する。東は南シナ海に面し、フィリピンと対する。</p>
                 </div>
-                <div class="col-lg-6">
-                  <img src="./Map_all.gif" alt="Map"/>
+
+
+                <!-- 地図のキャンパス -->
+                <div class="map-embed">
+                	<div id="map-canvas">ここに地図が表示されます</div>
                 </div>
+
+
+
+
               </div>
               </div>
               <div class="tab-pane fade" id="local">
                 <div class="col-lg-6">
                 <h2>地域</h2>
-                <p>ベトナム社会主義共和国（ベトナムしゃかいしゅぎきょうわこく、ベトナム語: Cộng
-                  Hoà Xã Hội Chủ Nghĩa Việt Nam / 共和社会主義越南）、通称ベトナム（Việt Nam/越南）は
-                  、東南アジアのインドシナ半島東部に位置する社会主義共和制国家。首都はハノイ。
-                  ASEAN加盟国、通貨はドン、人口9,250万人（2014年末）。</p>
-                <p>国土は南北に細長く、北は中華人民共和国、西はラオス、南西はカンボジアと国境
-                  を接する。東は南シナ海に面し、フィリピンと対する。</p>
+                <p>ベトナムは北部、中部及び南部に分けられる。しかし、もっと細かく分けれと、８つの地域になる。</p>
+                <h3><a href="#west-south" data-toggle="tab">西北部 </a></h3>
+                <p>ベトナム北部の西にある山岳部であり、北は中華人民共和国、西はラオスと国境を接する。西北部は偉大なる山岳とここに住んでいる
+                  少数民族の特色な生活が魅力である。ここに住んでいる少数民族の数は２０以上であり、その中でタイ (Thai)民族は一番人数が多い。
+                  タイ民族の踊りや女性の華やかな服装は有名である。有名な観光地として、避暑地のサパ（ Sapa)やモク・チャウ高原（ Cao nguyen
+                  Moc Chau)などがある。<a href="#west-south" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#east-south" data-toggle="tab">東北部 </a></h3>
+                <p>。。。<a href="#east-south" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#pink-river-delta" data-toggle="tab">紅河デルタ </a></h3>
+                <p>。。。<a href="#pink-river-delta" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#center-south" data-toggle="tab">中北部 </a></h3>
+                <p>。。。<a href="#center-south" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#center-westen" data-toggle="tab">中南部 </a></h3>
+                <p>。。。<a href="#center-westen" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#taynguyen" data-toggle="tab">タイ・グエン（中部高原） </a></h3>
+                <p>。。。<a href="#taynguyen" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#east-weaten" data-toggle="tab">東南部</a></h3>
+                <p>。。。<a href="#east-westen" data-toggle="tab">もっと見る</a></p>
+                <h3><a href="#mekong-delta" data-toggle="tab">メコン・デルタ</a></h3>
+                <p>。。。<a href="#mekong-delta" data-toggle="tab">もっと見る</a></p>
+
+
               </div>
               <div class="col-lg-6">
                 <img src="./Map.gif" alt="Map"/>
@@ -164,6 +190,48 @@
                 <p>ベトナムは７つの地域に分けられている。</p>
                 <p>...</p>
               </div>
+              <div class="tab-pane fade" id="west-south">
+                <div class="col-lg-6">
+                <h2>西北部 </h2>
+                <p>ベトナム北部の西にある山岳部であり、北は中華人民共和国、西はラオスと国境を接する。西北部は偉大なる山岳とここに住んでいる
+                  少数民族の特色な生活が魅力である。ここに住んでいる少数民族の数は２０以上であり、その中でタイ (Thai)民族は一番人数が多い。
+                  タイ民族の踊りや女性の華やかな服装は有名である。有名な観光地として、避暑地のサパ（ Sapa)やモク・チャウ高原（ Cao nguyen
+                  Moc Chau)などがある。以下は西北部のおすすめスポットである。</p>
+                <h3>Sapa</h3>
+                <div >
+                  <img src="./sapa.jpg" alt="tienson" width="400" height="300"/>
+                </div>
+                <p>サパはラオ・カイ県に属する海抜１６００メトールの避暑地である。気候は温帯性であり、平均温度は１５から１８度になっており、
+                  一年中涼しく、冬は雪が降る時もある。フランス植民地の時代から、フランスはサパの魅力を発見し、今でも２００個以上のフランス
+                  風の別荘が残っている。少数民族村の昔ながらの生活や、Bac谷（ Thac Bac)、ゴー洞窟（ Hang Gio)、ハム・ロン山（ Nui
+                  Ham Rong)などの自然はサパの魅力である。 </p>
+                <h3>Tien Son洞窟 </h3>
+                <div >
+                  <img src="./tienson.jpg" alt="tienson" width="400" height="300"/>
+                </div>
+                <p>ティエン・ソン洞窟は古代ながらの風景が残っている。中に入るほど広くなり、下に泉が流れている。色やかな様々な不思議な形の
+                  鍾乳石が魅力である。
+                 <h3>Moc Chau高原 </h3>
+                 <div >
+                   <img src="./mocchau.jpg" alt="mocchau" width="400" height="300"/>
+                 </div>
+                 <p>特別な気候であり、夏が平均温度２０度で涼しい、冬は他の地域より乾いている。モク・チャウ高原では、歴史遺跡、お寺が有名である。
+                   また、少数民族の踊り、特色な食べ物、手作りの工芸品などがある。 </p>
+                <h3>Thac Ba湖 </h3>
+                <div >
+                  <img src="./thacba.jpg" alt="thacba" width="400" height="300" />
+                </div>
+                <p>タク・バー湖でのクルージングがおすすめである。涼しい空気に囲まれ、自然と和むことができる。クルージングの後は、洞窟、山登りなど、
+                  偉大なる自然を楽しむことができる。 </p>
+
+
+              </div>
+
+              <!-- 地図のキャンパス -->
+              <div class="map-embed">
+                <div id="map-canvas-west-north">ここに地図が表示されます</div>
+              </div>
+
             </div>
           </div>
 
@@ -197,5 +265,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="./map.js"></script>
   </body>
 </html>
