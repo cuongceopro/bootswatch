@@ -1,0 +1,5 @@
+問題：タブ切り替える時に地図が表示されない
+タブ切り替える時に、画面をリサイズする必要がある
+$("#[tab-id]").on('shown.bs.tab', function() {
+	google.maps.event.trigger([Mapクラス名], 'resize');
+});
