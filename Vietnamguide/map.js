@@ -3,6 +3,7 @@ var map_west_north;
 var map_east_north;
 var map_red_river_delta;
 var map_world;
+var map_center_north;
 
 function initialize() {
 	// 中心の位置座標を指定する
@@ -11,6 +12,7 @@ function initialize() {
 	var latlng_east_north = new google.maps.LatLng( 24.2 , 103.5 );
 	var latlng_red_river_delta = new google.maps.LatLng( 24.2 , 103.8 );
 	var latlng_world = new google.maps.LatLng( 26 , 98 );
+	var latlng_center_north = new google.maps.LatLng( 23.5 , 101.5 );
 
 	// 地図のオプションを設定する
 	var mapOptions = {
@@ -36,13 +38,24 @@ function initialize() {
 		zoom: 5 ,				// ズーム値
 		center: latlng_world ,		// 中心座標 [latlng]
 	};
+	var mapOptions_center_north = {
+		zoom: 6 ,				// ズーム値
+		center: latlng_center_north ,		// 中心座標 [latlng]
+	};
 
 	//Mapインスタンス生成
 	map = new google.maps.Map( document.getElementById( 'map-canvas' ) , mapOptions ) ;
+	//map.data.loadGeoJson('https://data.opendevelopmentmekong.net/vi/dataset/40a9f762-d942-43bb-93bd-e70981e9735c/resource/df3b5e86-4d9b-4f7a-87df-fe6608918d5a/download/Diagioi.geojson');
+	//map.data.loadGeoJson('./geojson.geojson');
+	//map.data.loadGeoJson('./Diagioi.geojson');
+	map.data.loadGeoJson('GeoJson/westen-north0.json');
+	//map.data.loadGeoJson('GeoJson/geojson.json');
+
 	map_west_north = new google.maps.Map( document.getElementById( 'map-canvas-west-north' ) , mapOptions_west_north ) ;
 	map_east_north = new google.maps.Map( document.getElementById( 'map-canvas-east-north' ) , mapOptions_east_north ) ;
 	map_red_river_delta = new google.maps.Map( document.getElementById( 'map-canvas-red-river-delta' ) , mapOptions_red_river_delta ) ;
 	map_world = new google.maps.Map( document.getElementById( 'map-canvas-world' ) , mapOptions_world ) ;
+	map_center_north = new google.maps.Map( document.getElementById( 'map-canvas-center-north' ) , mapOptions_center_north ) ;
 
 	//-----------------------------------------------------------
 	//ポリらアイン
@@ -194,6 +207,53 @@ function initialize() {
 		{lat: 20.001334, lng: 106.042547},
 		{lat: 19.958726, lng: 106.026735}
 ];
+var polyline_center_north_1 = [
+	{lat: 20.649615, lng: 104.636625},
+	{lat: 20.604376, lng: 104.716772},
+	{lat: 20.578117, lng: 104.740816},
+	{lat: 20.585620, lng: 104.798922},
+	{lat: 20.655006, lng: 104.838995},
+	{lat: 20.671878, lng: 104.887083},
+	{lat: 20.632037, lng: 104.956209},
+	{lat: 20.575772, lng: 104.986264},
+	{lat: 20.564516, lng: 105.044370},
+	{lat: 20.569675, lng: 105.107485},
+	{lat: 20.517141, lng: 105.171602},
+	{lat: 20.490866, lng: 105.245738},
+	{lat: 20.436427, lng: 105.259763},
+	{lat: 20.398872, lng: 105.337906},
+	{lat: 20.385725, lng: 105.428071},
+	{lat: 20.385725, lng: 105.428071},
+	{lat: 20.342013, lng: 105.515896},
+	{lat: 20.292091, lng: 105.603180},
+	{lat: 20.267327, lng: 105.654807},
+	{lat: 20.215185, lng: 105.723226},
+	{lat: 20.164074, lng: 105.812339},
+	{lat: 20.112945, lng: 105.901452},
+	{lat: 20.061800, lng: 106.005417},
+	{lat: 20.064125, lng: 106.072252},
+	{lat: 20.001334, lng: 106.042547},
+	{lat: 19.958726, lng: 106.026735}
+];
+	var polyline_center_north_2 = [
+		{lat: 16.027009, lng: 107.464233},
+		{lat: 16.040421, lng: 107.487490},
+		{lat: 16.011362, lng: 107.522374},
+		{lat: 16.018068, lng: 107.561911},
+		{lat: 16.047126, lng: 107.557259},
+		{lat: 16.058301, lng: 107.620052},
+		{lat: 16.026540, lng: 107.628192},
+		{lat: 15.994081, lng: 107.698543},
+		{lat: 16.039449, lng: 107.756325},
+		{lat: 16.056093, lng: 107.815263},
+		{lat: 16.109384, lng: 107.855318},
+		{lat: 16.177456, lng: 107.870724},
+		{lat: 16.210004, lng: 107.916941},
+		{lat: 16.186333, lng: 107.963159},
+		{lat: 16.210004, lng: 107.993970},
+		{lat: 16.177456, lng: 108.098730},
+		{lat: 16.207045, lng: 108.194245}
+	];
 
 	//ポリラインの構造
   var flightPath_west_north = new google.maps.Polyline({
@@ -217,10 +277,26 @@ function initialize() {
 		strokeOpacity: 1.0,
 		strokeWeight: 2
 	});
+	var flightPath_center_north_1 = new google.maps.Polyline({
+		path: polyline_center_north_1,
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 1.0,
+		strokeWeight: 2
+	});
+	var flightPath_center_north_2 = new google.maps.Polyline({
+		path: polyline_center_north_2,
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 1.0,
+		strokeWeight: 2
+	});
 
   flightPath_west_north.setMap(map_west_north);
 	flightPath_east_north.setMap(map_east_north);
 	flightPath_red_river_delta.setMap(map_red_river_delta);
+	flightPath_center_north_1.setMap(map_center_north);
+	flightPath_center_north_2.setMap(map_center_north);
 
 
 	//------------------------------------------------------
@@ -319,10 +395,23 @@ $("#to-red-river-delta").on('shown.bs.tab', function() {
   	/* Trigger map resize event */
 	google.maps.event.trigger(map_red_river_delta, 'resize');
 });
+$("#from-local-to-red-river-delta").on('shown.bs.tab', function() {
+  	/* Trigger map resize event */
+	google.maps.event.trigger(map_red_river_delta, 'resize');
+});
 $("#to-world").on('shown.bs.tab', function() {
   	/* Trigger map resize event */
 	google.maps.event.trigger(map_world, 'resize');
 });
+$("#to-center-north").on('shown.bs.tab', function() {
+  	/* Trigger map resize event */
+	google.maps.event.trigger(map_center_north, 'resize');
+});
+$("#from-local-to-center-north").on('shown.bs.tab', function() {
+  	/* Trigger map resize event */
+	google.maps.event.trigger(map_center_north, 'resize');
+});
+
 
 
 
