@@ -101,7 +101,7 @@ function initialize() {
     	strokeColor: '#FF3300',
     	strokeWeight: 3
   	});
-  	
+
 	//map.data.loadGeoJson('GeoJson/geojson.json');
 	map_local = new google.maps.Map( document.getElementById( 'map-canvas-local' ) , mapOptions_local ) ;
 	map_local.data.loadGeoJson('GeoJson/all.json');
@@ -242,6 +242,15 @@ function initialize() {
 	var mekong_delta_markers = [];
 	var world_markers = [];
 
+	var food_east_north_markers = [];
+	var food_west_north_markers = [];
+	var food_red_river_data_markers = [];
+	var food_center_north_markers = [];
+	var food_center_southern_markers = [];
+	var food_taynguyen_markers = [];
+	var food_east_southern_markers = [];
+	var food_mekong_delta_markers = [];
+
 	west_north_markers[0] = new google.maps.Marker({
 		map: map_west_north,
 		position: new google.maps.LatLng(22.3475, 103.8175),
@@ -270,7 +279,7 @@ function initialize() {
 		map: map_west_north,
 		position: new google.maps.LatLng(20.773745, 105.200263),
 	});
-	
+
 
 	east_north_markers[0] = new google.maps.Marker({
 		map: map_east_north,
@@ -315,8 +324,8 @@ function initialize() {
 	east_north_markers[9] = new google.maps.Marker({
 		map: map_east_north,
 		position: new google.maps.LatLng(21.472296, 105.588387),
-	});	
-	
+	});
+
 
 	red_river_delta_markers[0] = new google.maps.Marker({
 		map: map_red_river_delta,
@@ -330,7 +339,7 @@ function initialize() {
 		map: map_red_river_delta,
 		position: new google.maps.LatLng(20.564173, 105.810991),
 	});
-	
+
 
 
 	world_markers[0] = new google.maps.Marker({
@@ -412,7 +421,7 @@ function initialize() {
 		map: map_center_southern,
 		position: new google.maps.LatLng(10.965746, 108.310597),
 	});
-	
+
 	taynguyen_markers[0] = new google.maps.Marker({
 		map: map_taynguyen,
 		position: new google.maps.LatLng(14.581763, 108.274824)
@@ -429,7 +438,7 @@ function initialize() {
 		map: map_taynguyen,
 		position: new google.maps.LatLng(12.702351, 107.716250)
 	});
-	
+
 	east_southern_markers[0] = new google.maps.Marker({
 		map: map_east_southern,
 		position: new google.maps.LatLng(11.384160, 106.175780)
@@ -446,7 +455,7 @@ function initialize() {
 		map: map_east_southern,
 		position: new google.maps.LatLng(8.682374, 106.607208)
 	});
-	
+
 	mekong_delta_markers[0] = new google.maps.Marker({
 		map: map_mekong_delta,
 		position: new google.maps.LatLng(10.332091, 106.323759)
@@ -454,15 +463,176 @@ function initialize() {
 	mekong_delta_markers[1] = new google.maps.Marker({
 		map: map_mekong_delta,
 		position: new google.maps.LatLng(10.310231, 103.984879)
-	});	
+	});
 	mekong_delta_markers[2] = new google.maps.Marker({
 		map: map_mekong_delta,
 		position: new google.maps.LatLng(8.789640, 104.996870)
-	});	
+	});
 	mekong_delta_markers[3] = new google.maps.Marker({
 		map: map_mekong_delta,
 		position: new google.maps.LatLng(10.637096, 106.461127)
-	});	
+	});
+
+	food_east_north_markers[0] = new google.maps.Marker({
+		map: map_food_east_north,
+		position: new google.maps.LatLng(22.806144, 104.980875)
+	});
+	food_east_north_markers[1] = new google.maps.Marker({
+		map: map_food_east_north,
+		position: new google.maps.LatLng(21.848465, 106.767413)
+	});
+	food_east_north_markers[2] = new google.maps.Marker({
+		map: map_food_east_north,
+		position: new google.maps.LatLng(20.977586, 107.049246)
+	});
+
+	food_west_north_markers[0] = new google.maps.Marker({
+		map: map_food_west_north,
+		position: new google.maps.LatLng(22.286858, 103.905935)
+	});
+	food_west_north_markers[1] = new google.maps.Marker({
+		map: map_food_west_north,
+		position: new google.maps.LatLng(22.403339, 103.451385)
+	});
+	food_west_north_markers[2] = new google.maps.Marker({
+		map: map_food_west_north,
+		position: new google.maps.LatLng(21.539375, 104.079828)
+	});
+	food_west_north_markers[3] = new google.maps.Marker({
+		map: map_food_west_north,
+		position: new google.maps.LatLng(20.829031, 105.341163)
+	});
+
+	food_red_river_data_markers[0] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(21.026317, 105.838409)
+	});
+	food_red_river_data_markers[1] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(20.818844, 105.992017)
+	});
+	food_red_river_data_markers[2] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(20.437122, 106.165675)
+	});
+	food_red_river_data_markers[3] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(20.935937, 106.317115)
+	});
+	food_red_river_data_markers[4] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(20.841613, 106.689404)
+	});
+	food_red_river_data_markers[5] = new google.maps.Marker({
+		map: map_food_red_river_delta,
+		position: new google.maps.LatLng(20.247796, 105.976376)
+	});
+
+	food_center_north_markers[0] = new google.maps.Marker({
+		map: map_food_center_north,
+		position: new google.maps.LatLng(16.448501, 107.569647)
+	});
+	food_center_north_markers[1] = new google.maps.Marker({
+		map: map_food_center_north,
+		position: new google.maps.LatLng(19.813528, 105.798294)
+	});
+	food_center_north_markers[2] = new google.maps.Marker({
+		map: map_food_center_north,
+		position: new google.maps.LatLng(18.681698, 105.677399)
+	});
+	food_center_north_markers[3] = new google.maps.Marker({
+		map: map_food_center_north,
+		position: new google.maps.LatLng(18.356903, 105.909113)
+	});
+
+	food_center_southern_markers[0] = new google.maps.Marker({
+		map: map_food_center_southern,
+		position: new google.maps.LatLng(16.072184, 108.210358)
+	});
+	food_center_southern_markers[1] = new google.maps.Marker({
+		map: map_food_center_southern,
+		position: new google.maps.LatLng(15.875770, 108.353370)
+	});
+	food_center_southern_markers[2] = new google.maps.Marker({
+		map: map_food_center_southern,
+		position: new google.maps.LatLng(15.381929, 109.120782)
+	});
+	food_center_southern_markers[3] = new google.maps.Marker({
+		map: map_food_center_southern,
+		position: new google.maps.LatLng(12.233787, 109.205947)
+	});
+	food_center_southern_markers[4] = new google.maps.Marker({
+		map: map_food_center_southern,
+		position: new google.maps.LatLng(10.981241, 108.271207)
+	});
+
+	food_taynguyen_markers[0] = new google.maps.Marker({
+		map: map_food_taynguyen,
+		position: new google.maps.LatLng(12.890253, 107.791517)
+	});
+	food_taynguyen_markers[1] = new google.maps.Marker({
+		map: map_food_taynguyen,
+		position: new google.maps.LatLng(12.661996, 108.038003)
+	});
+	food_taynguyen_markers[2] = new google.maps.Marker({
+		map: map_food_taynguyen,
+		position: new google.maps.LatLng(12.218598, 107.642382)
+	});
+	food_taynguyen_markers[3] = new google.maps.Marker({
+		map: map_food_taynguyen,
+		position: new google.maps.LatLng(11.927753, 108.467543)
+	});
+
+	food_east_southern_markers[0] = new google.maps.Marker({
+		map: map_food_east_southern,
+		position: new google.maps.LatLng(10.768052, 106.653125)
+	});
+	food_east_southern_markers[1] = new google.maps.Marker({
+		map: map_food_east_southern,
+		position: new google.maps.LatLng(10.402166, 107.128049)
+	});
+	food_east_southern_markers[2] = new google.maps.Marker({
+		map: map_food_east_southern,
+		position: new google.maps.LatLng(11.358845, 106.092266)
+	});
+	food_east_southern_markers[3] = new google.maps.Marker({
+		map: map_food_east_southern,
+		position: new google.maps.LatLng(11.208992, 106.664731)
+	});
+
+	food_mekong_delta_markers[0] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(10.307191, 103.986252)
+	});
+	food_mekong_delta_markers[1] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(9.562149, 105.934674)
+	});
+	food_mekong_delta_markers[2] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(9.260652, 105.716184)
+	});
+	food_mekong_delta_markers[3] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(10.676565, 105.092895)
+	});
+	food_mekong_delta_markers[4] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(8.634354, 105.005800)
+	});
+	food_mekong_delta_markers[5] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(9.360733, 104.954347)
+	});
+	food_mekong_delta_markers[6] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(9.018844, 105.062412)
+	});
+	food_mekong_delta_markers[7] = new google.maps.Marker({
+		map: map_food_mekong_delta,
+		position: new google.maps.LatLng(10.553032, 105.666377)
+	});
+
 
 }
 
